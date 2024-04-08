@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Register } from '../interface/register.interface';
+import { Register } from '../models/register.interface';
 import { environment } from 'src/environments/environment.development';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AuthData } from '../interface/auth-data.interface';
+import { AuthData } from '../models/auth-data.interface';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
