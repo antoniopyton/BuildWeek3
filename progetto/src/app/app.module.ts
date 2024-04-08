@@ -13,6 +13,7 @@ import { Route, RouterModule } from '@angular/router';
 import { Error404Component } from './components/error404/error404.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { PostcardComponent } from './components/postcard/postcard.component';
 
 const routes: Route[] = [
   {
@@ -44,7 +45,8 @@ const routes: Route[] = [
     RegisterComponent,
     Error404Component,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PostcardComponent
   ],
   imports: [
     BrowserModule,
