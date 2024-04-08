@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private PostsSrv: PostService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPosts();
+  }
 
   getPosts() {
     this.PostsSrv.getPosts().subscribe((data) => {
