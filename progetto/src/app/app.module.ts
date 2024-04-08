@@ -1,16 +1,50 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Validators, Form, FormsModule, FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor } from '@angular/common/http';
+import { AuthGuard } from './auth/auth.guard';
+
 
 import { AppComponent } from './app.component';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { Route, RouterModule } from '@angular/router';
+import { Error404Component } from './components/error404/error404.component';
+
+const routes: Route[] = [
+  {
+    path:"login",
+    component: LoginComponent,
+  },
+  {
+    path:"register",
+    component: RegisterComponent,
+  },
+  {
+    path:"error404",
+    component: Error404Component
+  },
+  {
+    path:"**",
+    redirectTo: "error404"
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    Error404Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
