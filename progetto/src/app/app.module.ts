@@ -11,8 +11,14 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { Route, RouterModule } from '@angular/router';
 import { Error404Component } from './components/error404/error404.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Route[] = [
+  {
+    path:"",
+    component: HomeComponent,
+  },
   {
     path:"login",
     component: LoginComponent,
@@ -36,7 +42,9 @@ const routes: Route[] = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    Error404Component
+    Error404Component,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

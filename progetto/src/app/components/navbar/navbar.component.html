@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand overb"[routerLink]="['/']"><img src="assets/epicode_logo.png" width="100" alt="logo" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/']" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          </li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/film']" routerLinkActive="active">Film</a>
+          </li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/profile']" routerLinkActive="active">Profilo</a>
+          </li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/users']" routerLinkActive="active">Lista utenti</a>
+          </li>
+          <li *ngIf="!user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+          </li>
+          <li *ngIf="!user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="active">Registrati</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="user" class="d-flex justify-content-center">
+      <div class="dropdown d-flex">
+        <div class="d-flex">
+          <h4 class="text-white me-3 mt-4">
+            Benvenuto
+          </h4>
+          <h5 class="text-white">{{user.user.name}}</h5>
+        </div>
+        <button class="btn dropdown-toggle rounded-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  
+          <img width="70" src="https://i.insider.com/61cc84b94710b10019c77960?width=700" class="rounded" alt="avatar" />
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="profile.html">
+              <img width="40" src="https://i.insider.com/61cc84b94710b10019c77960?width=700" class="rounded" alt="avatar" />
+              Epicoder#1</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="profile.html">Manage Profiles</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="account.html">Account</a>
+          </li>
+          <li><a class="dropdown-item" href="#">Help Center</a></li>
+          <br />
+          <li>
+            <button type="button" class="btn btn-danger float-end me-5" *ngIf="user" (click)="logout()">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

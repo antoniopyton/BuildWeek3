@@ -1,14 +1,19 @@
 {
-    "users":[
-        {
-            "email": "acopetti99@gmail.com",
-            "password": "$2a$10$zrrRTJMiNVrBBlrz0dW1r.T2xP6cuyeTXqrvr1q23MEUjeYLUpGGG",
-            "name": "Antonio Copetti",
-            "id": 1
-          }
-    ],
-
-    "posts":[
+  "users": [
+    {
+      "email": "acopetti99@gmail.com",
+      "password": "$2a$10$zrrRTJMiNVrBBlrz0dW1r.T2xP6cuyeTXqrvr1q23MEUjeYLUpGGG",
+      "name": "Antonio Copetti",
+      "id": 1
+    },
+    {
+      "email": "luigi@copetti.it",
+      "password": "$2a$10$zG5gw12UaRxDyliepRUQmet/GQ.lN0XftsTIEWTKf0UlHlVNL7lY2",
+      "name": "Luigi Copetti",
+      "id": 2
+    }
+  ],
+  "posts": [
     {
       "userId": 1,
       "id": 1,
