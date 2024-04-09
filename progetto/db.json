@@ -11,42 +11,14 @@
       "password": "$2a$10$Q8XOrUKVi9VER1iKGshUA.4b5IYdwPOqc5DLZ.NJ9jyyW9QV4mSEa",
       "name": "Fabio Scaramozzino",
       "id": 2
-    },
-    {
-      "email": "gabriele@scognamiglio.it",
-      "password": "$2a$10$d6Aw2rNhem6KMlvQDwa/KedQGhIWdd7/6QxKHR8CQby2s1.gzB5MO",
-      "name": "Gabriele",
-      "id": 3
-    },
-    {
-      "email": "Massimiliano@dallamura.com",
-      "password": "$2a$10$ftDNUuyvXMPrItkjWNRY5.9b6hgUBztPIXoMHgV.O0N2R7CwM0Tka",
-      "name": "Massimiliano Dalla Mura",
-      "id": 4
-    },
-    {
-      "email": "Kevin@loffredi.com",
-      "password": "$2a$10$QAoq6gC759OsVt3S1xhKV.W1yV0ij52yCz/88jw/4TxA7XyN38xwW",
-      "name": "Kevin Loffredi",
-      "id": 5
-    },
-    {
-      "email": "alien@gmail.com",
-      "password": "$2a$10$qxRzjW5a4Jdn2KkeBWiQFewhjP0pT9bsIbA/JsEkNQVGr0P2T273u",
-      "id": 6
-    },
-    {
-      "email": "gabriele@scognamiglio",
-      "password": "$2a$10$YHVO1VMpyFfBWyEm0uCW7OSI5/OMGXLdo4LZlzTkI/X80al77VRga",
-      "id": 7
     }
   ],
   "posts": [
     {
       "userId": 1,
       "id": 4,
-      "title": "ayoo",
-      "body": "siuuuumicoooo"
+      "title": "eum et est occaecati",
+      "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
     },
     {
       "userId": 1,
@@ -83,12 +55,18 @@
       "id": 10,
       "title": "optio molestias id quia eum",
       "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
+    }
+  ],
+  "likes": [
+    {
+      "postId": 4,
+      "userId": 2,
+      "id": 1
     },
     {
-      "title": "Edited post",
-      "body": "siuuuuuuuuuuuuuum",
+      "postId": 5,
       "userId": 2,
-      "id": 11
+      "id": 2
     }
   ]
 }

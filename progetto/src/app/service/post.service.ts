@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/post.interface';
-
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +30,9 @@ export class PostService {
 
   createPost(data:Partial<Post>){
     return this.http.post(`${this.apiURL}`, data)
+  }
+
+  getPostLikes(postId: number): Observable<number> {
+    return this.http.get<number>(`${this.apiURL}/${postId}/likes/count`);
   }
 }
