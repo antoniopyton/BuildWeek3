@@ -11,14 +11,14 @@
             <a class="nav-link text-white" [routerLink]="['/']" routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }">Home</a>
           </li>
-          <li *ngIf="user" class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/film']" routerLinkActive="active">Film</a>
-          </li>
-          <li *ngIf="user" class="nav-item">
+          <!-- <li *ngIf="user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/profile']" routerLinkActive="active">Profilo</a>
           </li>
           <li *ngIf="user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/users']" routerLinkActive="active">Lista utenti</a>
+          </li> -->
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/newpost']" routerLinkActive="active">New Post</a>
           </li>
           <li *ngIf="!user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
@@ -26,6 +26,7 @@
           <li *ngIf="!user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="active">Registrati</a>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -48,12 +49,12 @@
               Epicoder#1</a>
           </li>
           <li>
-            <a class="dropdown-item" href="profile.html">Manage Profiles</a>
+            <a class="dropdown-item"[routerLink]="['/profile']" routerLinkActive="active">Manage Profiles</a>
           </li>
           <li>
-            <a class="dropdown-item" href="account.html">Account</a>
+            <a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive="active">Account</a>
           </li>
-          <li><a class="dropdown-item" href="#">Help Center</a></li>
+          <li><a class="dropdown-item" href="https://support.google.com/" target="_blank" >Help Center</a></li>
           <br />
           <li>
             <button type="button" class="btn btn-danger float-end me-5" *ngIf="user" (click)="logout()">

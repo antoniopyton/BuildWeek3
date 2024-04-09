@@ -1,10 +1,34 @@
-<div class="container-fluid d-flex my-5 p-4 post-card rounded-3" *ngIf="mostra">
+<div class="container-fluid d-flex my-5 p-4 post-card rounded-3 justify-content-between" *ngIf="mostra">
     <div class="d-flex flex-column">
-        <p><span>{{post.id}} </span>{{post.title}}</p>
+        <h5>{{post.title| uppercase}}</h5>
         <p>{{post.body}}</p>
     </div>
-    <div class="d-flex flex-column justify-content-evenly">
-        <button type="button" class="btn my-1 text-light btn-pers"><i class="bi bi-pencil-square"></i></button>
-        <button type="button" class="btn my-1 btn-pers-outline" (click)="deletePost(post.id)"><i class="bi bi-trash3-fill"></i></button>
+    <div class="d-flex flex-column justif| uppercasey-content-evenly">
+        <button *ngIf="user" type="button" class="btn my-1 text-light btn-pers" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+post.id"><i class="bi bi-pencil-square"></i></button>
+        <button *ngIf="user" type="button" class="btn my-1 btn-pers-outline" (click)="deletePost(post.id)"><i class="bi bi-trash3-fill"></i></button>
     </div>
+  
+  <!-- Modal -->
+  <div class="modal fade " id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close btn-pers-outline" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <label for="title" class="form-label">Titolo</label>
+            <input type="text"  name="title" id="title" class="form-control text-light" ngModel="{{post.title}}">
+            <label for="body" class="form-label">Post</label>
+            <textarea name="body" id="body" cols="30" rows="10"  class="form-control text-light" ngModel="{{post.body}}"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-pers-outline" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-pers text-light" (click)="editPost(editForm)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

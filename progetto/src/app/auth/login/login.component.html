@@ -9,6 +9,9 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" id="password" required class="form-control" ngModel />
         </div>
-        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary mt-4">Accedi</button>
+        <div class="text-center">
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary mt-4">Accedi</button>
+        </div>
     </form>
+    <p *ngIf="errore" class="text-danger text-center fw-bold">{{errore}}</p>
 </div>

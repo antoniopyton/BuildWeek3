@@ -14,26 +14,32 @@ import { Error404Component } from './components/error404/error404.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostcardComponent } from './components/postcard/postcard.component';
+import { NewPostComponent } from './components/new-post/new-post.component';
+
 
 const routes: Route[] = [
   {
-    path:"",
+    path: "",
     component: HomeComponent,
   },
   {
-    path:"login",
+    path: "login",
     component: LoginComponent,
   },
   {
-    path:"register",
+    path: "register",
     component: RegisterComponent,
   },
   {
-    path:"error404",
+    path: "newpost",
+    component: NewPostComponent,
+  },
+  {
+    path: "error404",
     component: Error404Component
   },
   {
-    path:"**",
+    path: "**",
     redirectTo: "error404"
   }
 ]
@@ -46,7 +52,8 @@ const routes: Route[] = [
     Error404Component,
     NavbarComponent,
     HomeComponent,
-    PostcardComponent
+    PostcardComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,7 @@ const routes: Route[] = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

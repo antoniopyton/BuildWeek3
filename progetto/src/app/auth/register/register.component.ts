@@ -12,6 +12,7 @@ export class RegisterComponent {
 
     constructor(private authSrv: AuthService, private router: Router) {}
 
+
     onSubmit(form: NgForm) {
         console.log(form.value);
         try {

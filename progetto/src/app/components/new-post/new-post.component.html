@@ -1,0 +1,10 @@
+<div class="container my-5">
+    <h2 class="text-center">Nuovo Post </h2>
+    <form #createForm="ngForm" (submit)="createPost(createForm)">
+        <label for="title" class="form-label">Titolo</label>
+        <input type="text" name="title" id="title" class="form-control text-light" ngModel>
+        <label for="body" class="form-label">Post</label>
+        <textarea name="body" id="body" cols="30" rows="10" class="form-control text-light" ngModel></textarea>
+        <button type="submit" class="btn btn-pers text-light mt-3">Crea post</button>
+    </form>
+</div>
