@@ -6,14 +6,22 @@
         <div class="form-group">
             <label for="name" class="form-label">Nome completo</label>
             <input type="text" id="name" name="name" required class="form-control" ngModel />
+            <p><strong class="text-danger"
+                    *ngIf="!signupForm.controls['name'].valid && signupForm.controls['name'].touched">Inserisci un
+                    nome!</strong></p>
             <label for="email" class="form-label">Email</label>
             <input type="email" id="email" name="email" required class="form-control" ngModel />
+             <p><strong class="text-danger"
+                *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">Inserisci un email
+                valida!</strong></p>
             <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" name="password" required class="form-control" ngModel />
+            <input type="password" id="password" name="password" pattern="[a-zA-Z0-9]{5,}" required class="form-control" ngModel />
+            <p><strong class="text-danger"
+                    *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">La password deve comprendere almeno 5 caratteri alfanumerici</strong>
+            <p>
+            <div class="d-flex justify-content-center">
+                <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary mt-4">Registrati</button>
+            </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary mt-4">Registrati</button>
-        </div>
-        
     </form>
 </div>
