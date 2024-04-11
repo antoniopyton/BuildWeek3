@@ -21,55 +21,25 @@
   ],
   "posts": [
     {
-      "title": "ciao",
-      "body": "c",
+      "title": "sium",
+      "body": "",
       "userId": 2,
       "id": 1
-    },
-    {
-      "title": "Ciaoo",
-      "body": "ciaone",
-      "userId": 2,
-      "id": 2
     }
   ],
-  "likes": [],
+  "likes": [
+    {
+      "postId": 1,
+      "userId": 2,
+      "id": 1
+    }
+  ],
   "comments": [
     {
-      "body": "megax2",
-      "userId": 3,
-      "postId": 1,
-      "id": 3
-    },
-    {
-      "body": "commento",
-      "userId": 3,
-      "postId": 1,
-      "id": 4
-    },
-    {
-      "body": "ciaoo",
+      "body": "agree",
       "userId": 2,
       "postId": 1,
-      "id": 5
-    },
-    {
-      "body": "sai",
-      "userId": 2,
-      "postId": 1,
-      "id": 6
-    },
-    {
-      "body": "siuuuum",
-      "userId": 2,
-      "postId": 1,
-      "id": 7
-    },
-    {
-      "body": "mega",
-      "userId": 2,
-      "postId": 2,
-      "id": 8
+      "id": 1
     }
   ]
 }

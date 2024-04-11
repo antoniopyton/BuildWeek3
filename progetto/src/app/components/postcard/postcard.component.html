@@ -1,7 +1,7 @@
-<div class="container-fluid post-card rounded-3">
-  <div class="d-flex my-5 p-4  justify-content-between" *ngIf="show">
+<div class="container-fluid post-card rounded-3" *ngIf="show">
+  <div class="d-flex my-5 p-4  justify-content-between" >
     <div class="d-flex flex-column">
-      <p>{{ authorName }}</p>
+      <p *ngIf="post" [routerLink]="['/profile', post.userId]">{{ authorName }}</p>
       <h5>{{post.title | uppercase}}</h5>
       <p>{{post.body}}</p>
     </div>
@@ -46,12 +46,12 @@
       </div>
     </div>
   </div>
-  <div class="accordion px-4" id="accordionExample">
+  <div class="accordion px-4" id="accordionExample" *ngIf="postComments.length>0">
     <div class="accordion-item" >
       <h2 class="accordion-header" >
         <button class="accordion-button collapsed collpased" style="background-color: rgba(15,16,28,1);"type="button" data-bs-toggle="collapse"
           [attr.data-bs-target]="'#collapseOne'+post.id" aria-expanded="false" aria-controls="collapseOne">
-          <h4 *ngIf="postComments.length>0" class="text-center" style="color: #6D1666;">Commenti</h4>
+          <h4 class="text-center" style="color: #6D1666;">Commenti</h4>
         </button>
       </h2>
       <div id="collapseOne{{post.id}}" class="accordion-collapse collapse p-3" data-bs-parent="#accordionExample" style="background-color: rgba(15,16,28,1) ;">
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <h4 *ngIf="postComments.length>0" class="text-center mt-3" style="color: #6D1666;">Lascia un commento</h4>
+  <h4 class="text-center mt-3" style="color: #6D1666;">Lascia un commento</h4>
 
   <div class="container-fluid my-2">
     <form #commentForm="ngForm" class="input-group input-group-sm mb-3 align-items-center">
