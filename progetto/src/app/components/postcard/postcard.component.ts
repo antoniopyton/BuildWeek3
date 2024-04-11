@@ -12,6 +12,7 @@ import { Like } from 'src/app/models/like.interface';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.interface';
 import { Comment } from 'src/app/models/comment.interface';
+import { CommentService } from 'src/app/service/comment.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ import { Comment } from 'src/app/models/comment.interface';
 export class PostcardComponent implements OnInit {
   @Input() post!: Post;
   @Input() comments:Comment[]=[];
-  postComments=this.comments.filter(comment=> comment.postId === this.post.id)
+  postComments: Comment[]=[];
   user!: AuthData | null
   show = true;
   likeCount = 0;
@@ -36,20 +37,25 @@ export class PostcardComponent implements OnInit {
   isTextAreaFocused: boolean = false;
  
 
-  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService) { }
+  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService, private commentSrv:CommentService) { }
 
   ngOnInit(): void {
     this.authsrv.user$.subscribe((data) => {
       this.user = data;
     })
     this.getLikes();
-    console.log(this.activeUserParsed.user.id)
     this.loadAuthorName();
+    
+    setTimeout(() => {
+      this.postComments=this.comments.filter(comment=> comment.postId === this.post.id)
+      console.log(this.postComments)
+    }, 300);
   }
 
   deletePost(id: number) {
     this.postSrv.deletePost(id).subscribe();
     this.show = false;
+
   }
 
   getLikes() {
@@ -83,9 +89,6 @@ export class PostcardComponent implements OnInit {
   getLikeCount() {
     this.postSrv.getPostLikes(this.post.id).subscribe((count) => this.likeCount = count)
   }
-  
-  /*   editTitle=this.post.title;
-    editBody=this.post.body */
 
   editPost(form: NgForm) {
     console.log(form.value);
@@ -113,15 +116,15 @@ export class PostcardComponent implements OnInit {
   newComment(form: NgForm) {
     const activeUser: any = localStorage.getItem('user')
     const activeUserId = JSON.parse(activeUser).user.id;
-    let post = {
-      title: "",
+    let comment = {
       body: form.value.body,
-      userId: activeUserId
+      userId: activeUserId,
+      postId: this.post.id
     }
-    console.log(post);
-    this.postSrv.createPost(post).subscribe();
-    alert('Commento creato!');
-    this.router.navigate(['/'])
+    console.log(comment);
+    this.commentSrv.createComment(comment).subscribe();
+    // alert('Commento creato!');
+    window.location.reload()
   }
 
   onTextAreaFocus() {
