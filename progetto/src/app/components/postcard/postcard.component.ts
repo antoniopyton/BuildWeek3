@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.interface';
 import { Input } from '@angular/core';
 import { PostService } from 'src/app/service/post.service';
+import { UsersService } from 'src/app/service/users.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthData } from 'src/app/models/auth-data.interface';
 import { LikeService } from 'src/app/service/like.service';
 import { Like } from 'src/app/models/like.interface';
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/models/user.interface';
+import { Comment } from 'src/app/models/comment.interface';
 
 
 @Component({
@@ -17,6 +21,8 @@ import { Like } from 'src/app/models/like.interface';
 })
 export class PostcardComponent implements OnInit {
   @Input() post!: Post;
+  @Input() comments:Comment[]=[];
+  postComments=this.comments.filter(comment=> comment.postId === this.post.id)
   user!: AuthData | null
   show = true;
   likeCount = 0;
@@ -25,9 +31,12 @@ export class PostcardComponent implements OnInit {
   toggle!: boolean;
   activeUser: any = localStorage.getItem('user');
   activeUserParsed = JSON.parse(this.activeUser);
+  users: User[] = [];
+  authorName: string = '';
+  isTextAreaFocused: boolean = false;
+ 
 
-
-  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService) { }
+  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService) { }
 
   ngOnInit(): void {
     this.authsrv.user$.subscribe((data) => {
@@ -35,6 +44,7 @@ export class PostcardComponent implements OnInit {
     })
     this.getLikes();
     console.log(this.activeUserParsed.user.id)
+    this.loadAuthorName();
   }
 
   deletePost(id: number) {
@@ -88,5 +98,37 @@ export class PostcardComponent implements OnInit {
       return true
     }
     else { return false }
+  }
+
+  loadAuthorName() {
+    this.userSrv.getUsers().subscribe(users => {
+      console.log(users)
+      const author = users.find(user => user.id === this.post.userId);
+      if (author) {
+        this.authorName = author.name;
+      }
+    });
+  }
+
+  newComment(form: NgForm) {
+    const activeUser: any = localStorage.getItem('user')
+    const activeUserId = JSON.parse(activeUser).user.id;
+    let post = {
+      title: "",
+      body: form.value.body,
+      userId: activeUserId
+    }
+    console.log(post);
+    this.postSrv.createPost(post).subscribe();
+    alert('Commento creato!');
+    this.router.navigate(['/'])
+  }
+
+  onTextAreaFocus() {
+    this.isTextAreaFocused = true;
+  }
+  
+  onTextAreaBlur() {
+    this.isTextAreaFocused = false;
   }
 }
