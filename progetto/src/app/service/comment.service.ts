@@ -3,6 +3,7 @@ import { Comment } from '../models/comment.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment} from 'src/environments/environment.development';
 import { Post } from '../models/post.interface';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -10,6 +11,9 @@ import { Post } from '../models/post.interface';
 })
 export class CommentService {
   apiURL = `${environment.apiURL}comments`
+ /*  private _commentsSubject: BehaviorSubject<Comment[]> = new BehaviorSubject<Comment[]>([]);
+  readonly comments$ = this._commentsSubject.asObservable(); */
+
   constructor(private http:HttpClient) { }
 
 

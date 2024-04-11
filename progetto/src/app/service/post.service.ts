@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/post.interface';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   apiURL = `${environment.apiURL}posts`
 
+  
   constructor(private http: HttpClient) { }
 
   getPosts() {

@@ -23,7 +23,7 @@ import { CommentService } from 'src/app/service/comment.service';
 export class PostcardComponent implements OnInit {
   @Input() post!: Post;
   @Input() comments:Comment[]=[];
-  postComments=this.comments.filter(comment=> comment.postId === this.post.id)
+  postComments: Comment[]=[];
   user!: AuthData | null
   show = true;
   likeCount = 0;
@@ -44,13 +44,18 @@ export class PostcardComponent implements OnInit {
       this.user = data;
     })
     this.getLikes();
-    console.log(this.activeUserParsed.user.id)
     this.loadAuthorName();
+    
+    setTimeout(() => {
+      this.postComments=this.comments.filter(comment=> comment.postId === this.post.id)
+      console.log(this.postComments)
+    }, 300);
   }
 
   deletePost(id: number) {
     this.postSrv.deletePost(id).subscribe();
     this.show = false;
+
   }
 
   getLikes() {
@@ -84,9 +89,6 @@ export class PostcardComponent implements OnInit {
   getLikeCount() {
     this.postSrv.getPostLikes(this.post.id).subscribe((count) => this.likeCount = count)
   }
-  
-  /*   editTitle=this.post.title;
-    editBody=this.post.body */
 
   editPost(form: NgForm) {
     console.log(form.value);
@@ -121,8 +123,8 @@ export class PostcardComponent implements OnInit {
     }
     console.log(comment);
     this.commentSrv.createComment(comment).subscribe();
-    alert('Commento creato!');
-    this.router.navigate(['/'])
+    // alert('Commento creato!');
+    window.location.reload()
   }
 
   onTextAreaFocus() {
