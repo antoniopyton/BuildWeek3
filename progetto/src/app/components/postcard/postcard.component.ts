@@ -23,6 +23,9 @@ export class PostcardComponent implements OnInit {
   likes:Like[]=[];
   userLikes:Like[]=[];
   toggle!: boolean;
+  activeUser: any = localStorage.getItem('user');
+  activeUserParsed = JSON.parse(this.activeUser);
+
 
   constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService) { }
 
@@ -31,6 +34,7 @@ export class PostcardComponent implements OnInit {
       this.user = data;
     })
     this.getLikes();
+    console.log(this.activeUserParsed.user.id)
   }
 
   deletePost(id: number) {
@@ -50,11 +54,10 @@ export class PostcardComponent implements OnInit {
   }
 
   addLike(likedPostId: number) {
-    const activeUser: any = localStorage.getItem('user')
-    const activeUserId = JSON.parse(activeUser).user.id;
+  
     const like = {
       postId: likedPostId,
-      userId: activeUserId
+      userId: this.activeUserParsed.user.id
     }
     this.likeSrv.createLike(like).subscribe();
     this.isFav(likedPostId)
@@ -70,6 +73,7 @@ export class PostcardComponent implements OnInit {
   getLikeCount() {
     this.postSrv.getPostLikes(this.post.id).subscribe((count) => this.likeCount = count)
   }
+  
   /*   editTitle=this.post.title;
     editBody=this.post.body */
 
