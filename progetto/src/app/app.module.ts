@@ -16,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PostcardComponent } from './components/postcard/postcard.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 const routes: Route[] = [
@@ -33,8 +35,16 @@ const routes: Route[] = [
   },
   {
     path: "newpost",
-    component: NewPostComponent,
+   component: NewPostComponent,
   },
+  {
+    path: "profile/:userId",
+   component: ProfileComponent,
+  },
+  /* {
+    path: "users",
+    component: UsersComponent,
+  }, */
   {
     path: "error404",
     component: Error404Component
@@ -55,7 +65,8 @@ const routes: Route[] = [
     HomeComponent,
     PostcardComponent,
     NewPostComponent,
-    CommentComponent
+    /* UsersComponent, */
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
