@@ -20,6 +20,9 @@
           <li *ngIf="user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/newpost']" routerLinkActive="active">New Post</a>
           </li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/utenti']" routerLinkActive="active">Utenti</a>
+          </li>
           <li *ngIf="!user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
           </li>
