@@ -26,5 +26,14 @@ export class NavbarComponent implements OnInit {
     this.authsrv.logout()
   }
 
+  setSelectedUser(name: string, email: string, userId: number) {
+    const selectedUser = {
+      name: name,
+      email: email,
+      id: userId
+    }
+    console.log(selectedUser)
+    this.userSrv.setSelectedUser(selectedUser)
+  }
   
 }

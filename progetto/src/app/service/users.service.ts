@@ -11,6 +11,7 @@ export class UsersService {
   apiURL=`${environment.apiURL}users`
   usersSub = new BehaviorSubject<User[]>([]);
   users: User[] = [];
+  selectedUser!: User;
 
   constructor(private http:HttpClient) {}
 
@@ -32,5 +33,13 @@ export class UsersService {
 
   setUsersObservable(userss: User[]) {
     this.usersSub.next(userss);
+  }
+
+  setSelectedUser(user: User) {
+    this.selectedUser = user;
+  }
+
+  getSelectedUser() {
+    return this.selectedUser;
   }
 }

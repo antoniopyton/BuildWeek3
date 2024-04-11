@@ -19,6 +19,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 
 
@@ -43,10 +44,6 @@ const routes: Route[] = [
     path: "profile/:userid",
    component: ProfileComponent,
   },
-  /* {
-    path: "users",
-    component: UsersComponent,
-  }, */
   {
     path: "error404",
     component: Error404Component
@@ -75,6 +72,7 @@ const routes: Route[] = [
     FormsModule,
     HttpClientModule,
     CommonModule,
+    NgIf,
     RouterModule.forRoot(routes)
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

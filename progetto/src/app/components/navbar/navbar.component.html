@@ -34,7 +34,7 @@
           <h4 class="text-white me-4">
             Benvenuto
           </h4>
-          <h5 [routerLink]="['/profile', user.user.id]" class="pointer me-2 customTextColor">{{user.user.name}}</h5>
+          <h5 [routerLink]="['/profile', user.user.id]" class="pointer me-2 customTextColor" (click)="setSelectedUser(user.user.name, user.user.email, user.user.id)">{{user.user.name}}</h5>
         </div>
         <button class="btn dropdown-toggle rounded-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   

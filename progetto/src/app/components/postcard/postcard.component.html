@@ -1,7 +1,7 @@
 <div class="container-fluid post-card rounded-3" *ngIf="show">
   <div class="d-flex my-5 p-4  justify-content-between" >
     <div class="d-flex flex-column">
-      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="customTextColor">{{ authorName }}</p>
+      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="customTextColor" (click)="setSelectedUser(selectedUser.name, selectedUser.email, selectedUser.id)">{{ selectedUser.name }}</p>
       <h5>{{post.title | uppercase}}</h5>
       <p>{{post.body}}</p>
     </div>

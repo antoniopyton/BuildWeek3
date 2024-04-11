@@ -31,6 +31,16 @@ export class SearchbarComponent implements OnInit {
     this.loadUsers();
     
   }
+
+  setSelectedUser(name: string, email: string, userId: number) {
+    const selectedUser = {
+      name: name,
+      email: email,
+      id: userId
+    }
+    this.userSrv.setSelectedUser(selectedUser)
+  }
+
   filterUsers() {
     this.filteredUsers = this.users.filter(user =>
       user.name.toLowerCase().includes(this.searchTerm.toLowerCase())
