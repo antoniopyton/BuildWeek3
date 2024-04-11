@@ -11,20 +11,28 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit{
 user!:User
 selectedUser!:User;
-urlProfileId: string | null = null;
+urlProfileId: any;
 constructor(private route: ActivatedRoute, private userSrv: UsersService) {}
 
 ngOnInit(): void {
   this.getLoggedUser();
+  
   this.route.paramMap.subscribe(params => {
     // Ottieni il valore del parametro 'id' dall'URL
-    this.urlProfileId = params.get('id');
+    this.urlProfileId = params.get('userId');
     if (this.urlProfileId) {
+      console.log(this.urlProfileId)
       // Carica il film in base all'ID dall'URL
      /*  this.loadMovieById(parseInt(this.urlProfileId, 10)); */
-    }
+     this.getUser(this.urlProfileId);
+     setTimeout(() => {
+      console.log(this.selectedUser)
+    }, 300);
+      
+     }
   });
 }
+
 
 /* loadMovieById(id: number): void {
   this.moviesService.getMovieById(id).subscribe(
@@ -45,12 +53,12 @@ ngOnInit(): void {
 } */
 
 getUser(id: number) {
-  /* this.userSrv.getUser(id).subscribe((user) => this.selectedUser = user); */
+  this.userSrv.getUser(id).subscribe((user) => this.selectedUser = user);
+  console.log(this.selectedUser)
 }
 
 getLoggedUser(){
   const activeUser: any = localStorage.getItem('user')
   this.user = JSON.parse(activeUser).user;
-  console.log(this.user)
 }
 }

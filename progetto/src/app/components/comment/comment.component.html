@@ -1,6 +1,6 @@
 <div class="comment rounded-4 p-2 my-2 d-flex justify-content-between align-items-center" *ngIf="show">
   <div class="w-75">
-    <p class="text-secondary fw-bold mb-1">{{authorName}}</p>
+    <p [routerLink]="['/profile', comment.userId]" class="fw-bold mb-1 customTextColor">{{authorName}}</p>
     <p class="text-light mb-1"> {{ comment.body }} </p>
   </div>
   <button *ngIf="user && activeUserParsed.user.id == comment.userId" type="button" class="btn my-1 btn-outline-danger"

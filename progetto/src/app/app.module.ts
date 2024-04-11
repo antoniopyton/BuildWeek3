@@ -17,6 +17,8 @@ import { PostcardComponent } from './components/postcard/postcard.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -38,7 +40,7 @@ const routes: Route[] = [
    component: NewPostComponent,
   },
   {
-    path: "profile/:userId",
+    path: "profile/:userid",
    component: ProfileComponent,
   },
   /* {
@@ -65,13 +67,14 @@ const routes: Route[] = [
     HomeComponent,
     PostcardComponent,
     NewPostComponent,
-    /* UsersComponent, */
     CommentComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
