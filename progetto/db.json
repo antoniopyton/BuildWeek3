@@ -28,5 +28,12 @@
     }
   ],
   "likes": [],
-  "comments": []
+  "comments": [
+    {
+      "body": "siuuum",
+      "userId": 2,
+      "postId": 1,
+      "id": 1
+    }
+  ]
 }

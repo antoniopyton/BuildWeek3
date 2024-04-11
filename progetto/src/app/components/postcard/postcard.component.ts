@@ -12,6 +12,7 @@ import { Like } from 'src/app/models/like.interface';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.interface';
 import { Comment } from 'src/app/models/comment.interface';
+import { CommentService } from 'src/app/service/comment.service';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class PostcardComponent implements OnInit {
   isTextAreaFocused: boolean = false;
  
 
-  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService) { }
+  constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService, private commentSrv:CommentService) { }
 
   ngOnInit(): void {
     this.authsrv.user$.subscribe((data) => {
@@ -113,13 +114,13 @@ export class PostcardComponent implements OnInit {
   newComment(form: NgForm) {
     const activeUser: any = localStorage.getItem('user')
     const activeUserId = JSON.parse(activeUser).user.id;
-    let post = {
-      title: "",
+    let comment = {
       body: form.value.body,
-      userId: activeUserId
+      userId: activeUserId,
+      postId: this.post.id
     }
-    console.log(post);
-    this.postSrv.createPost(post).subscribe();
+    console.log(comment);
+    this.commentSrv.createComment(comment).subscribe();
     alert('Commento creato!');
     this.router.navigate(['/'])
   }

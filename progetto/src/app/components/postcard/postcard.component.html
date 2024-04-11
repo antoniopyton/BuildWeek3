@@ -4,7 +4,7 @@
     <h5>{{post.title | uppercase}}</h5>
     <p>{{post.body}}</p>
 
-    <div class="comments bg" *ngFor="let comment of comments">
+    <div class="comments bg-light text-dark" *ngFor="let comment of comments">
       <app-comment [comment]="comment"></app-comment>
     </div>
 
