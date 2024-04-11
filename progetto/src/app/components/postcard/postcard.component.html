@@ -1,7 +1,7 @@
 <div class="container-fluid post-card rounded-3" *ngIf="show">
-  <div class="d-flex my-5 p-4  justify-content-between" >
+  <div class="d-flex p-4  justify-content-between" >
     <div class="d-flex flex-column">
-      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="customTextColor" (click)="setSelectedUser(selectedUser.name, selectedUser.email, selectedUser.id)">{{ selectedUser.name }}</p>
+      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="customTextColor fw-semibold" (click)="setSelectedUser(selectedUser.name, selectedUser.email, selectedUser.id)">{{ selectedUser.name }}</p>
       <h5>{{post.title | uppercase}}</h5>
       <p>{{post.body}}</p>
     </div>
@@ -11,11 +11,11 @@
           class="bi bi-pencil-square"></i></button>
       <button *ngIf="user && activeUserParsed.user.id == post.userId" type="button" class="btn my-1 btn-outline-danger"
         (click)="deletePost(post.id)"><i class="bi bi-trash3-fill"></i></button>
-      <button *ngIf="user && !isFav(post.id)" type="button" class="btn btn-success my-1" (click)="addLike(post.id)">
-        <i class="bi bi-hand-thumbs-up"></i>
+      <button *ngIf="user && !isFav(post.id)" type="button" class="btn epicodeBgColor my-1" (click)="addLike(post.id)">
+        <i class="bi bi-hand-thumbs-up text-light"></i>
       </button>
-      <button *ngIf="user && isFav(post.id)" type="button" class="btn btn-danger my-1" (click)="removeLike(post.id)">
-        <i class="bi bi-hand-thumbs-up"></i> unLike
+      <button *ngIf="user && isFav(post.id)" type="button" class="btn btn-success my-1" (click)="removeLike(post.id)">
+        <i class="bi bi-hand-thumbs-up"></i>
       </button>
     </div>
 
@@ -72,7 +72,7 @@
       <textarea name="body" id="body" cols="10" rows="2" class="form-control text-light my-4 ms-2" ngModel
         (focus)="onTextAreaFocus()" (blur)="onTextAreaBlur()"></textarea>
       <div>
-        <button *ngIf="user" type="button" class="btn btn-success ms-3"
+        <button *ngIf="user" type="button" class="btn text-light epicodeBgColor ms-3"
           (click)="newComment(commentForm)">Comment</button>
       </div>
     </form>

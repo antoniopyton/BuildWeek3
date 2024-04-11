@@ -27,7 +27,13 @@
       "id": 1
     }
   ],
-  "likes": [],
+  "likes": [
+    {
+      "postId": 1,
+      "userId": 3,
+      "id": 1
+    }
+  ],
   "comments": [
     {
       "body": "agree",
