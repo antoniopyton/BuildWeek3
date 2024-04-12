@@ -1,4 +1,4 @@
-<input class="form-control border-0" placeholder="Search Users..." type="text" [(ngModel)]="searchTerm" (input)="filterUsers()" style="background-color: rgba(15,16,28,1);">
+<input class="form-control border-0 text-light" placeholder="Search Users..." type="text" [(ngModel)]="searchTerm" (input)="filterUsers()" style="background-color: rgba(15,16,28,1);">
 
 <div *ngIf="searchTerm != ''" class="position-absolute bg w-100">
     <div  *ngFor="let user of filteredUsers">

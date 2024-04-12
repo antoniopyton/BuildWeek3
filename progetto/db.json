@@ -29,6 +29,18 @@
       "password": "$2a$10$BYhBVjstNu.dWbIauq0FPOBYrjkyanOtxS/4t4ldgbYzplhUlwp5e",
       "name": "Kevin Loffredi",
       "id": 5
+    },
+    {
+      "email": "elias@pinna.it",
+      "password": "$2a$10$oTo9QC/WXENTyVDqO.Ampeww5nNiOOk4VhxPcJr0x.lZPLuttvyWe",
+      "name": "Elias Pinna",
+      "id": 6
+    },
+    {
+      "email": "davide@faggionato.it",
+      "password": "$2a$10$cBfzmxIiG/vxfpiyDQ6Kiuf2vG5gh.W0MjtbLCupZLlGy3faAzF.K",
+      "name": "Davide Faggionato",
+      "id": 7
     }
   ],
   "posts": [
@@ -48,6 +60,12 @@
       "title": "Nuove frontiere dell'Intelligenza Artificiale",
       "body": "Discutiamo delle ultime scoperte e delle prospettive future nell'ambito dell'IA.",
       "userId": 3,
+      "id": 26
+    },
+    {
+      "title": "Creazione profilo LinkedIn",
+      "body": "Emhh.. noi abbiamo deciso per Luca Altimani, che per chi non lo conoscesse è....",
+      "userId": 6,
       "id": 3
     },
     {
@@ -89,7 +107,7 @@
     {
       "title": "Intelligenza Artificiale e Creatività: sfide e opportunità",
       "body": "Condividiamo riflessioni sul ruolo dell'IA nell'arte, nella musica e nella creatività in generale.",
-      "userId": 1,
+      "userId": 5,
       "id": 10
     },
     {
@@ -107,7 +125,7 @@
     {
       "title": "Imparare l'analisi dei dati con R",
       "body": "Una guida passo-passo per imparare l'analisi dei dati utilizzando il linguaggio di programmazione R.",
-      "userId": 1,
+      "userId": 4,
       "id": 13
     },
     {
@@ -131,7 +149,7 @@
     {
       "title": "Tutorial su Keras: creazione di modelli di deep learning",
       "body": "Una serie di tutorial su come utilizzare Keras per creare modelli di deep learning, con esempi pratici e guide passo-passo.",
-      "userId": 2,
+      "userId": 5,
       "id": 17
     },
     {
@@ -143,7 +161,7 @@
     {
       "title": "Sfida: Ottimizzazione delle prestazioni di un'app Angular",
       "body": "Sto lavorando su un'app Angular e sto cercando modi per ottimizzare le prestazioni. Accetto consigli e suggerimenti!",
-      "userId": 1,
+      "userId": 4,
       "id": 19
     },
     {
@@ -167,7 +185,7 @@
     {
       "title": "Tecniche avanzate di data visualization con Python",
       "body": "Esploriamo tecniche avanzate e librerie di data visualization in Python per comunicare efficacemente i risultati dell'analisi dei dati.",
-      "userId": 2,
+      "userId": 4,
       "id": 23
     },
     {
@@ -179,7 +197,7 @@
     {
       "title": "Utilizzo di TensorFlow per la creazione di reti neurali",
       "body": "Tutorial su come utilizzare TensorFlow per la creazione e l'addestramento di reti neurali per problemi di machine learning e deep learning.",
-      "userId": 1,
+      "userId": 5,
       "id": 25
     }
   ],
@@ -198,6 +216,16 @@
       "postId": 2,
       "userId": 3,
       "id": 3
+    },
+    {
+      "postId": 2,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "postId": 1,
+      "userId": 1,
+      "id": 5
     }
   ],
   "comments": [
@@ -214,28 +242,10 @@
       "id": 4
     },
     {
-      "body": "Grazie per la condivisione!",
-      "userId": 1,
-      "postId": 2,
-      "id": 5
-    },
-    {
       "body": "Buon lavoro!",
       "userId": 2,
       "postId": 2,
       "id": 6
-    },
-    {
-      "body": "Sono d'accordo con te!",
-      "userId": 3,
-      "postId": 3,
-      "id": 7
-    },
-    {
-      "body": "Molto interessante, grazie!",
-      "userId": 4,
-      "postId": 3,
-      "id": 8
     },
     {
       "body": "Aspetto con ansia il prossimo post!",
@@ -290,6 +300,30 @@
       "userId": 3,
       "postId": 9,
       "id": 17
+    },
+    {
+      "body": "fot piedini????",
+      "userId": 7,
+      "postId": 3,
+      "id": 18
+    },
+    {
+      "body": "ce l'abbiamo fatta",
+      "userId": 1,
+      "postId": 1,
+      "id": 19
+    },
+    {
+      "body": "\nPenso che l'Intelligenza Artificiale sia una delle tecnologie più affascinanti e promettenti del nostro tempo. La sua capacità di apprendere dai dati, adattarsi e risolvere problemi complessi offre molteplici opportunità in vari settori, dall'assistenza sanitaria alla finanza, dalla produzione all'arte. Tuttavia, è importante affrontare con attenzione le sfide etiche, sociali e di sicurezza che possono sorgere con l'implementazione dell'IA, garantendo sempre un uso responsabile e etico di questa potente tecnologia.",
+      "userId": 1,
+      "postId": 26,
+      "id": 20
+    },
+    {
+      "body": "Dio Santo.......",
+      "userId": 6,
+      "postId": 3,
+      "id": 21
     }
   ]
 }

@@ -31,10 +31,10 @@
     <div *ngIf="user" class="d-flex justify-content-center">
       <div class="dropdown d-flex">
         <div class="d-flex align-items-center">
-          <h4 class="text-white me-4 mb-0">
+          <h4 class="text-white me-4">
             Benvenuto
           </h4>
-          <h5 [routerLink]="['/profile', user.user.id]" class="pointer me-2 mb-0 customTextColor" (click)="setSelectedUser(user.user.name, user.user.email, user.user.id)">{{user.user.name}}</h5>
+          <h5 [routerLink]="['/profile', user.user.id]" class="pointer customTextColor" (click)="setSelectedUser(user.user.name, user.user.email, user.user.id)">{{user.user.name}}</h5>
         </div>
         <button class="btn dropdown-toggle rounded-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   
@@ -42,15 +42,15 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a class="dropdown-item" href="profile.html">
+            <a class="dropdown-item" [routerLink]="['/profile', user.user.id]">
               <img width="40" src="https://i.insider.com/61cc84b94710b10019c77960?width=700" class="rounded" alt="avatar" />
-              Epicoder#1</a>
+              {{user.user.name}}</a>
           </li>
           <li>
-            <a class="dropdown-item"[routerLink]="['/profile']" routerLinkActive="active">Manage Profiles</a>
+            <a class="dropdown-item"[routerLink]="['/profile', user.user.id]" routerLinkActive="active">Manage Profiles</a>
           </li>
           <li>
-            <a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive="active">Account</a>
+            <a class="dropdown-item" [routerLink]="['/profile', user.user.id]" routerLinkActive="active">Account</a>
           </li>
           <li><a class="dropdown-item" href="https://support.google.com/" target="_blank" >Help Center</a></li>
           <br />
