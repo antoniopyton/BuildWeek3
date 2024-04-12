@@ -20,22 +20,24 @@ export class CommentComponent implements OnInit{
   constructor(private userSrv: UsersService, private cmmntSrv: CommentService, private authSrv:AuthService){}
   selectedUser!: User;
   show = true;
-  user!: AuthData | null
+  user!: AuthData | any
   activeUser: any = localStorage.getItem('user');
   activeUserParsed = JSON.parse(this.activeUser)
-
-  
-
   @Input() comment!: Comment;
+  userComment!: User;
+  loading=true;
+
 
   ngOnInit(): void {
     this.loadSelectedUser();
-    console.log(this.comment.userId);
-    console.log(this.activeUserParsed.user.id);
-    this.authSrv.user$.subscribe((data) => {
-      this.user = data
-    })
-    }
+    // console.log(this.activeUserParsed.user.id);
+    this.userSrv.getUser(this.comment.userId).subscribe((data) =>
+        this.userComment = data);
+
+      setTimeout(() => {
+        this.loading=false
+      }, 250);    
+  }
  
     setSelectedUser(name: string, email: string, userId: number) {
       const selectedUser = {
@@ -49,7 +51,6 @@ export class CommentComponent implements OnInit{
 
   loadSelectedUser() {
     this.userSrv.getUsers().subscribe(users => {
-      console.log(users)
       const author = users.find(user => user.id === this.comment.userId);
       if (author) {
         this.selectedUser = author;

@@ -11,25 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
   user!: User;
   selectedUser!: User
-  urlProfileId: string | null = null;
+  loading = true;
 
-  constructor(private route: ActivatedRoute, private userSrv: UsersService) {}
+  constructor(private route: ActivatedRoute, private userSrv: UsersService) { }
 
   ngOnInit(): void {
     this.getLoggedUser();
-    this.route.paramMap.subscribe(params => {
-      this.urlProfileId = params.get('id');
-      if (this.urlProfileId) {
-        const id = parseInt(this.urlProfileId, 10);
-        
-      }
-      this.getUser();
-      console.log(this.selectedUser)
+    this.route.params.subscribe((params) => {
+      const urlProfileId = +params['userid'];
+      this.userSrv.getUser(urlProfileId).subscribe((data) =>
+        this.user = data);
+
+      console.log(this.user)
+
     });
   }
 
-  getUser(): void {
-    this.selectedUser = this.userSrv.getSelectedUser();
+  getUser(id: number): void {
+    // this.selectedUser = this.userSrv.getSelectedUser();
+    this.userSrv.getUser(id).subscribe();
   }
 
   getLoggedUser(): void {

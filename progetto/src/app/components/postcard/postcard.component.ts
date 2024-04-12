@@ -26,7 +26,7 @@ export class PostcardComponent implements OnInit {
   postComments: Comment[]=[];
   user!: AuthData | null
   show = true;
-  likeCount = 0;
+  likeCount!: number;
   likes:Like[]=[];
   userLikes:Like[]=[];
   toggle!: boolean;
@@ -35,7 +35,8 @@ export class PostcardComponent implements OnInit {
   users: User[] = [];
   selectedUser!: User;
   isTextAreaFocused: boolean = false;
- 
+  loading=true;
+ userComment!: User;
 
   constructor(private postSrv: PostService, private router: Router, private authsrv: AuthService, private likeSrv: LikeService, private userSrv: UsersService, private commentSrv:CommentService) { }
 
@@ -45,11 +46,18 @@ export class PostcardComponent implements OnInit {
     })
     this.getLikes();
     this.loadSelectedUser();
+     this.getLikeCount();
+
+    this.userSrv.getUser(this.post.userId).subscribe((data) =>
+        this.userComment = data);
     
     setTimeout(() => {
       this.postComments=this.comments.filter(comment=> comment.postId === this.post.id)
-      console.log(this.postComments)
-    }, 300);
+    }, 500);
+
+    setTimeout(() => {
+      this.loading=false
+    }, 400);
   }
 
   setSelectedUser(name: string, email: string, userId: number) {
@@ -58,7 +66,6 @@ export class PostcardComponent implements OnInit {
       email: email,
       id: userId
     }
-    console.log(selectedUser)
     this.userSrv.setSelectedUser(selectedUser)
   }
 
@@ -80,7 +87,6 @@ export class PostcardComponent implements OnInit {
   }
 
   addLike(likedPostId: number) {
-  
     const like = {
       postId: likedPostId,
       userId: this.activeUserParsed.user.id
@@ -88,6 +94,7 @@ export class PostcardComponent implements OnInit {
     this.likeSrv.createLike(like).subscribe();
     this.isFav(likedPostId)
     this.getLikes();
+    this.getLikeCount();
   }
 
   removeLike(postId: number) {
@@ -95,19 +102,26 @@ export class PostcardComponent implements OnInit {
     this.likeSrv.deleteLike(daRimuovere.id).subscribe();
     this.likes = [];
       this.isFav(postId)
+      this.getLikes();
+      this.getLikeCount();
   }
   getLikeCount() {
-    this.postSrv.getPostLikes(this.post.id).subscribe((count) => this.likeCount = count)
+    this.likeSrv.getLikes().subscribe((data) => {
+      this.likes = data;
+      // console.log(this.likes);
+      let postLikes = this.likes.filter(like => like.postId === this.post.id);
+      this.likeCount = postLikes.length;
+      // console.log(postLikes.length);
+    });
   }
-
+  
   editPost(form: NgForm) {
-    console.log(form.value);
     this.postSrv.editPost(this.post.id, form.value).subscribe();
     location.reload()
   }
 
   isFav(id: number) {
-    if (this.likes.find(fav => fav.postId === id)) {
+    if (this.likes.find(fav => fav.postId === id && fav.userId===this.user?.user.id)) {
       return true
     }
     else { return false }
@@ -115,7 +129,6 @@ export class PostcardComponent implements OnInit {
 
   loadSelectedUser() {
     this.userSrv.getUsers().subscribe(users => {
-      console.log(users)
       const author = users.find(user => user.id === this.post.userId);
       if (author) {
         this.selectedUser = author;
@@ -131,9 +144,7 @@ export class PostcardComponent implements OnInit {
       userId: activeUserId,
       postId: this.post.id
     }
-    console.log(comment);
     this.commentSrv.createComment(comment).subscribe();
-    // alert('Commento creato!');
     window.location.reload()
   }
 
