@@ -23,41 +23,273 @@
       "password": "$2a$10$wxZKz8KXAQ7yHh7qULnNA.nwyPZV5LsAskxJsGAB/QhFVBlnSXwSi",
       "name": "Gabriele Scogna",
       "id": 4
+    },
+    {
+      "email": "kevin@loffredi.it",
+      "password": "$2a$10$BYhBVjstNu.dWbIauq0FPOBYrjkyanOtxS/4t4ldgbYzplhUlwp5e",
+      "name": "Kevin Loffredi",
+      "id": 5
     }
   ],
   "posts": [
     {
       "title": "sium",
-      "body": "",
+      "body": "Primo post funzionante",
       "userId": 2,
       "id": 1
     },
     {
-      "title": "Richiesta di Consiglio: Difficoltà nella Implementazione di una Funzionalità in Angular",
-      "body": "Ciao a tutti,\n\nSono attualmente alle prese con lo sviluppo di un'applicazione Angular e mi trovo ad affrontare una sfida che mi sta dando parecchi grattacapi. Mi rivolgo a voi, professionisti dello sviluppo web, per chiedere un consiglio su come affrontare questa situazione.\n\nLa funzionalità che sto cercando di implementare riguarda la gestione dinamica dei filtri di ricerca all'interno di una tabella dei dati. In pratica, ho una tabella che visualizza una serie di dati e vorrei permettere all'utente di filtrare questi dati in base a diversi criteri, come ad esempio la data, il tipo di elemento, o altre proprietà.\n\nHo già implementato il meccanismo di base per la visualizzazione dei dati e ho anche creato i vari componenti per i filtri di ricerca. Tuttavia, sto riscontrando difficoltà nel far sì che i filtri si sincronizzino correttamente con i dati visualizzati nella tabella.",
-      "userId": 3,
+      "title": "Benvenuti a tutti sul nostro EPIC FORUM!",
+      "body": "Scriveteci cosa ne pensate, lasciate un like ed un commento. Siate rispettosi e interagite il più possibile!!",
+      "userId": 1,
       "id": 2
+    },
+    {
+      "title": "Nuove frontiere dell'Intelligenza Artificiale",
+      "body": "Discutiamo delle ultime scoperte e delle prospettive future nell'ambito dell'IA.",
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "title": "Machine Learning per principianti",
+      "body": "Una guida introduttiva al machine learning per coloro che vogliono iniziare da zero.",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "title": "Risorse per imparare Python",
+      "body": "Condividiamo i migliori tutorial, libri e corsi online per imparare Python.",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "Deep Learning: panoramica e applicazioni",
+      "body": "Esploriamo i concetti fondamentali del deep learning e le sue applicazioni in vari settori.",
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "title": "Lavoro nel settore dell'IA: opportunità e sfide",
+      "body": "Condividiamo esperienze e consigli su come avviare una carriera nel campo dell'intelligenza artificiale.",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "title": "Blockchain e Intelligenza Artificiale: una partnership promettente",
+      "body": "Esploriamo come la tecnologia blockchain può essere integrata con l'IA per creare soluzioni innovative e sicure.",
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "title": "Il futuro del lavoro nell'era dell'IA",
+      "body": "Discussione sulle prospettive occupazionali e sulle competenze richieste nel contesto dell'automazione e dell'IA.",
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "title": "Intelligenza Artificiale e Creatività: sfide e opportunità",
+      "body": "Condividiamo riflessioni sul ruolo dell'IA nell'arte, nella musica e nella creatività in generale.",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "title": "Creazione di un'app di tracciamento per la salute",
+      "body": "Sto sviluppando un'applicazione di tracciamento per la salute e mi piacerebbe ricevere consigli sulla progettazione e l'implementazione.",
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "title": "Esperienze con lo sviluppo di app per dispositivi indossabili",
+      "body": "Condividiamo esperienze e best practice nello sviluppo di applicazioni per dispositivi indossabili come smartwatch e fitness tracker.",
+      "userId": 5,
+      "id": 12
+    },
+    {
+      "title": "Imparare l'analisi dei dati con R",
+      "body": "Una guida passo-passo per imparare l'analisi dei dati utilizzando il linguaggio di programmazione R.",
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "title": "Sviluppo di applicazioni web con Django",
+      "body": "Condividiamo risorse e consigli su come sviluppare applicazioni web usando il framework Django in Python.",
+      "userId": 2,
+      "id": 14
+    },
+    {
+      "title": "Automatizzare processi aziendali con RPA",
+      "body": "Discussione sulle applicazioni e i vantaggi della Automazione dei Processi Robotici (RPA) nelle aziende.",
+      "userId": 3,
+      "id": 15
+    },
+    {
+      "title": "Strategie per combattere l'overfitting nei modelli di machine learning",
+      "body": "Esploriamo tecniche e strategie per affrontare il problema dell'overfitting nei modelli di machine learning.",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "title": "Tutorial su Keras: creazione di modelli di deep learning",
+      "body": "Una serie di tutorial su come utilizzare Keras per creare modelli di deep learning, con esempi pratici e guide passo-passo.",
+      "userId": 2,
+      "id": 17
+    },
+    {
+      "title": "Introduzione alla programmazione funzionale in JavaScript",
+      "body": "Condividiamo concetti fondamentali e migliori pratiche per l'utilizzo della programmazione funzionale in JavaScript.",
+      "userId": 3,
+      "id": 18
+    },
+    {
+      "title": "Sfida: Ottimizzazione delle prestazioni di un'app Angular",
+      "body": "Sto lavorando su un'app Angular e sto cercando modi per ottimizzare le prestazioni. Accetto consigli e suggerimenti!",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "title": "Confronto tra framework frontend: Angular vs React vs Vue",
+      "body": "Discussione sui punti di forza e di debolezza di Angular, React e Vue per lo sviluppo di applicazioni web moderne.",
+      "userId": 2,
+      "id": 20
+    },
+    {
+      "title": "Applicazioni di intelligenza artificiale nel settore della sanità",
+      "body": "Esploriamo le applicazioni e i benefici dell'intelligenza artificiale nella diagnosi medica, nella gestione dei dati sanitari e altro ancora.",
+      "userId": 3,
+      "id": 21
+    },
+    {
+      "title": "Sviluppo di un assistente virtuale per la produttività personale",
+      "body": "Condividiamo esperienze e consigli sullo sviluppo di assistenti virtuali per migliorare la produttività personale.",
+      "userId": 1,
+      "id": 22
+    },
+    {
+      "title": "Tecniche avanzate di data visualization con Python",
+      "body": "Esploriamo tecniche avanzate e librerie di data visualization in Python per comunicare efficacemente i risultati dell'analisi dei dati.",
+      "userId": 2,
+      "id": 23
+    },
+    {
+      "title": "Sviluppo di applicazioni serverless con AWS Lambda",
+      "body": "Una guida pratica per sviluppare e distribuire applicazioni serverless utilizzando AWS Lambda e altri servizi cloud di Amazon Web Services.",
+      "userId": 3,
+      "id": 24
+    },
+    {
+      "title": "Utilizzo di TensorFlow per la creazione di reti neurali",
+      "body": "Tutorial su come utilizzare TensorFlow per la creazione e l'addestramento di reti neurali per problemi di machine learning e deep learning.",
+      "userId": 1,
+      "id": 25
     }
   ],
   "likes": [
     {
       "postId": 1,
-      "userId": 3,
+      "userId": 2,
       "id": 1
+    },
+    {
+      "postId": 2,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "postId": 2,
+      "userId": 3,
+      "id": 3
     }
   ],
   "comments": [
     {
-      "body": "agree",
-      "userId": 2,
+      "body": "Interessante!",
+      "userId": 4,
       "postId": 1,
-      "id": 1
+      "id": 3
     },
     {
-      "body": "ciao",
-      "userId": 3,
+      "body": "Questo post mi ha ispirato!",
+      "userId": 5,
       "postId": 1,
-      "id": 2
+      "id": 4
+    },
+    {
+      "body": "Grazie per la condivisione!",
+      "userId": 1,
+      "postId": 2,
+      "id": 5
+    },
+    {
+      "body": "Buon lavoro!",
+      "userId": 2,
+      "postId": 2,
+      "id": 6
+    },
+    {
+      "body": "Sono d'accordo con te!",
+      "userId": 3,
+      "postId": 3,
+      "id": 7
+    },
+    {
+      "body": "Molto interessante, grazie!",
+      "userId": 4,
+      "postId": 3,
+      "id": 8
+    },
+    {
+      "body": "Aspetto con ansia il prossimo post!",
+      "userId": 5,
+      "postId": 4,
+      "id": 9
+    },
+    {
+      "body": "Grazie per i consigli utili!",
+      "userId": 1,
+      "postId": 4,
+      "id": 10
+    },
+    {
+      "body": "Questo post è illuminante!",
+      "userId": 2,
+      "postId": 5,
+      "id": 11
+    },
+    {
+      "body": "Sto già imparando Python grazie a questo post!",
+      "userId": 3,
+      "postId": 5,
+      "id": 12
+    },
+    {
+      "body": "Esplorare il deep learning è sempre affascinante!",
+      "userId": 4,
+      "postId": 6,
+      "id": 13
+    },
+    {
+      "body": "Concordo, il deep learning ha un enorme potenziale!",
+      "userId": 5,
+      "postId": 6,
+      "id": 14
+    },
+    {
+      "body": "Grazie per i preziosi consigli!",
+      "userId": 1,
+      "postId": 7,
+      "id": 15
+    },
+    {
+      "body": "Sono interessato a esplorare questa partnership!",
+      "userId": 2,
+      "postId": 8,
+      "id": 16
+    },
+    {
+      "body": "L'IA nel settore sanitario è rivoluzionaria!",
+      "userId": 3,
+      "postId": 9,
+      "id": 17
     }
   ]
 }
