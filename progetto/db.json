@@ -25,6 +25,12 @@
       "body": "",
       "userId": 2,
       "id": 1
+    },
+    {
+      "title": "Richiesta di Consiglio: Difficoltà nella Implementazione di una Funzionalità in Angular",
+      "body": "Ciao a tutti,\n\nSono attualmente alle prese con lo sviluppo di un'applicazione Angular e mi trovo ad affrontare una sfida che mi sta dando parecchi grattacapi. Mi rivolgo a voi, professionisti dello sviluppo web, per chiedere un consiglio su come affrontare questa situazione.\n\nLa funzionalità che sto cercando di implementare riguarda la gestione dinamica dei filtri di ricerca all'interno di una tabella dei dati. In pratica, ho una tabella che visualizza una serie di dati e vorrei permettere all'utente di filtrare questi dati in base a diversi criteri, come ad esempio la data, il tipo di elemento, o altre proprietà.\n\nHo già implementato il meccanismo di base per la visualizzazione dei dati e ho anche creato i vari componenti per i filtri di ricerca. Tuttavia, sto riscontrando difficoltà nel far sì che i filtri si sincronizzino correttamente con i dati visualizzati nella tabella.",
+      "userId": 3,
+      "id": 2
     }
   ],
   "likes": [
