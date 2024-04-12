@@ -18,17 +18,18 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class CommentComponent implements OnInit{
   constructor(private userSrv: UsersService, private cmmntSrv: CommentService, private authSrv:AuthService){}
-  authorName: string = '';
+  selectedUser!: User;
   show = true;
   user!: AuthData | null
   activeUser: any = localStorage.getItem('user');
   activeUserParsed = JSON.parse(this.activeUser)
+
   
 
   @Input() comment!: Comment;
 
   ngOnInit(): void {
-    this.loadAuthorName();
+    this.loadSelectedUser();
     console.log(this.comment.userId);
     console.log(this.activeUserParsed.user.id);
     this.authSrv.user$.subscribe((data) => {
@@ -36,14 +37,22 @@ export class CommentComponent implements OnInit{
     })
     }
  
+    setSelectedUser(name: string, email: string, userId: number) {
+      const selectedUser = {
+        name: name,
+        email: email,
+        id: userId
+      }
+      console.log(selectedUser)
+      this.userSrv.setSelectedUser(selectedUser)
+    }
 
-  loadAuthorName() {
+  loadSelectedUser() {
     this.userSrv.getUsers().subscribe(users => {
       console.log(users)
       const author = users.find(user => user.id === this.comment.userId);
       if (author) {
-        this.authorName = author.name;
-        console.log(this.authorName)
+        this.selectedUser = author;
       }
     });
   }

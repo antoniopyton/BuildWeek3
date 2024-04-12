@@ -1,0 +1,7 @@
+<input class="" placeholder="Search Users" type="text" [(ngModel)]="searchTerm" (input)="filterUsers()">
+
+<div *ngIf="searchTerm != ''" class="position-absolute bg w-100">
+    <div  *ngFor="let user of filteredUsers">
+        <p [routerLink]="['/profile', user.id]" class="m-1 pointer" (click)="setSelectedUser(user.name, user.email, user.id)">{{user.name}}</p>
+    </div>
+</div>

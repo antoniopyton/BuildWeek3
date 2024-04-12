@@ -33,7 +33,7 @@ export class PostcardComponent implements OnInit {
   activeUser: any = localStorage.getItem('user');
   activeUserParsed = JSON.parse(this.activeUser);
   users: User[] = [];
-  authorName: string = '';
+  selectedUser!: User;
   isTextAreaFocused: boolean = false;
  
 
@@ -44,12 +44,22 @@ export class PostcardComponent implements OnInit {
       this.user = data;
     })
     this.getLikes();
-    this.loadAuthorName();
+    this.loadSelectedUser();
     
     setTimeout(() => {
       this.postComments=this.comments.filter(comment=> comment.postId === this.post.id)
       console.log(this.postComments)
     }, 300);
+  }
+
+  setSelectedUser(name: string, email: string, userId: number) {
+    const selectedUser = {
+      name: name,
+      email: email,
+      id: userId
+    }
+    console.log(selectedUser)
+    this.userSrv.setSelectedUser(selectedUser)
   }
 
   deletePost(id: number) {
@@ -103,12 +113,12 @@ export class PostcardComponent implements OnInit {
     else { return false }
   }
 
-  loadAuthorName() {
+  loadSelectedUser() {
     this.userSrv.getUsers().subscribe(users => {
       console.log(users)
       const author = users.find(user => user.id === this.post.userId);
       if (author) {
-        this.authorName = author.name;
+        this.selectedUser = author;
       }
     });
   }

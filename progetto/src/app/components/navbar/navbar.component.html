@@ -11,34 +11,30 @@
             <a class="nav-link text-white" [routerLink]="['/']" routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }">Home</a>
           </li>
-          <!-- <li *ngIf="user" class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/profile']" routerLinkActive="active">Profilo</a>
-          </li>
-          <li *ngIf="user" class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/users']" routerLinkActive="active">Lista utenti</a>
-          </li> -->
+          
           <li *ngIf="user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/newpost']" routerLinkActive="active">New Post</a>
           </li>
-          <li *ngIf="user" class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/users']" routerLinkActive="active">Utenti</a>
+          <li *ngIf="user" class="mx-2 nav-item d-flex align-items-center">
+              <app-searchbar class="position-relative"></app-searchbar>
+
           </li>
           <li *ngIf="!user" class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
           </li>
           <li *ngIf="!user" class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="active">Registrati</a>
+            <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="active">Sign Up</a>
           </li>
         </ul>
       </div>
     </div>
     <div *ngIf="user" class="d-flex justify-content-center">
       <div class="dropdown d-flex">
-        <div class="d-flex">
-          <h4 class="text-white me-3 mt-4">
+        <div class="d-flex align-items-center">
+          <h4 class="text-white me-4">
             Benvenuto
           </h4>
-          <h5 [routerLink]="['/profile', user.user.id]" class="text-white pointer">{{user.user.name}}</h5>
+          <h5 [routerLink]="['/profile', user.user.id]" class="pointer me-2 customTextColor" (click)="setSelectedUser(user.user.name, user.user.email, user.user.id)">{{user.user.name}}</h5>
         </div>
         <button class="btn dropdown-toggle rounded-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   
