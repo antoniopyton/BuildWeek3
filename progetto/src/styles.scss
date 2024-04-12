@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    background-image: linear-gradient(0deg, rgba(23,25,43,1) 30%, rgba(15,16,28,1) 100%);
+html,
+body {
+    background-image: linear-gradient(0deg, rgba(23, 25, 43, 1) 5%, rgba(15, 16, 28, 1) 100%);
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
-    color:#f8f9fa;
+    color: #f8f9fa;
 }
 
 .customTextColor {
@@ -21,4 +22,12 @@ html, body {
 
 .pointer {
     cursor: pointer;
+}
+
+::placeholder {
+    color: #ced4da8f !important;
+}
+
+textarea {
+    border: none !important;
 }

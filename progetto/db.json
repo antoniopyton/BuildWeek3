@@ -17,6 +17,12 @@
       "password": "$2a$10$OvPkyWA1Cj.T0qvdxX3KX.GEo.hJxiOIWadY7er/5sR1d5CZVK4hm",
       "name": "Massimiliano Dalla Mura",
       "id": 3
+    },
+    {
+      "email": "gabbo16s@gmail.com",
+      "password": "$2a$10$wxZKz8KXAQ7yHh7qULnNA.nwyPZV5LsAskxJsGAB/QhFVBlnSXwSi",
+      "name": "Gabriele Scogna",
+      "id": 4
     }
   ],
   "posts": [
