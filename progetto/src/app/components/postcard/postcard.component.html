@@ -1,7 +1,13 @@
-<div class="container-fluid post-card rounded-3" *ngIf="show">
+<!-- <div class="d-flex justify-content-center my-5" *ngIf="loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> -->
+
+<div class="container-fluid post-card rounded-3" *ngIf="show && !loading">
   <div class="d-flex p-4  justify-content-between" >
     <div class="d-flex flex-column">
-      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="pointer customTextColor fw-semibold" (click)="setSelectedUser(selectedUser.name, selectedUser.email, selectedUser.id)">{{ selectedUser.name }}</p>
+      <p *ngIf="post" [routerLink]="['/profile', post.userId]" class="pointer customTextColor fw-semibold" (click)="setSelectedUser(selectedUser.name, selectedUser.email, userComment.id)">{{userComment.name}}</p>
       <h5>{{post.title | uppercase}}</h5>
       <p>{{post.body}}</p>
     </div>
@@ -12,10 +18,10 @@
       <button *ngIf="user && activeUserParsed.user.id == post.userId" type="button" class="btn my-1 btn-outline-danger"
         (click)="deletePost(post.id)"><i class="bi bi-trash3-fill"></i></button>
       <button *ngIf="user && !isFav(post.id)" type="button" class="btn epicodeBgColor my-1" (click)="addLike(post.id)">
-        <i class="bi bi-hand-thumbs-up text-light"></i>
+        <i class="bi bi-hand-thumbs-up text-light">{{likeCount}}</i>
       </button>
       <button *ngIf="user && isFav(post.id)" type="button" class="btn btn-success my-1" (click)="removeLike(post.id)">
-        <i class="bi bi-hand-thumbs-up"></i>
+        <i class="bi bi-hand-thumbs-up">{{likeCount}}</i>
       </button>
     </div>
 
@@ -51,7 +57,7 @@
       <h2 class="accordion-header" >
         <button class="accordion-button collapsed collpased" style="background-color: rgba(15,16,28,1);"type="button" data-bs-toggle="collapse"
           [attr.data-bs-target]="'#collapseOne'+post.id" aria-expanded="false" aria-controls="collapseOne">
-          <h4 class="text-center" style="color: #6D1666;">Commenti</h4>
+          <h4 class="text-center" style="color: #6D1666;">Commenti {{postComments.length}}</h4>
         </button>
       </h2>
       <div id="collapseOne{{post.id}}" class="accordion-collapse collapse p-3" data-bs-parent="#accordionExample" style="background-color: rgba(15,16,28,1) ;">

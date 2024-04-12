@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/post.interface';
 import { Observable } from 'rxjs';
+import { Like } from '../models/like.interface';
 
 
 @Injectable({
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class PostService {
   apiURL = `${environment.apiURL}posts`
+  likeUrl=`${environment.apiURL}likes`
 
   
   constructor(private http: HttpClient) { }
@@ -34,7 +36,7 @@ export class PostService {
     return this.http.post(`${this.apiURL}`, data)
   }
 
-  getPostLikes(postId: number): Observable<number> {
-    return this.http.get<number>(`${this.apiURL}/${postId}/likes/count`);
+  getLikes() {
+    return this.http.get<Like[]>(`${this.apiURL}/likes`)
   }
 }

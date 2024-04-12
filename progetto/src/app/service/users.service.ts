@@ -26,7 +26,6 @@ export class UsersService {
   getUsersObservable(): Observable<User[]> {
     this.usersSub.subscribe((data => {
       this.users = data;
-      console.log(this.users)
     }))
     return this.usersSub;
   }
